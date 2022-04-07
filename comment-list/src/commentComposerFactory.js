@@ -20,11 +20,12 @@ function commentComposerFactory1() {
 // commentComposerFactory를 변경하지 않아도 된다!(환경 적응력이 높은 코드)
 // 이런 형태의 코드는 단위 테스트가 용이하다
 function commentComposerFactory({ commentRefiner }) {
+  // 직접 입력
   return ({ author, content }) => {
     return {
       id: uuidv4(),
       author,
-      content: commentRefiner(content),
+      content: commentRefiner(content), // 간접 입력
       createdTime: new Date(),
     };
   };
